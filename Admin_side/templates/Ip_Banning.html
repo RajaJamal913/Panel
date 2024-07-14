@@ -1,0 +1,28 @@
+{% extends 'base_admin.html' %}
+
+{% block content %}
+<h1>IP Banning</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>IP Address</th>
+            <th>Domain</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for ip in banned_ips %}
+        <tr>
+            <td>{{ ip.ip_address }}</td>
+            <td>{{ ip.domain }}</td>
+            <td>{{ ip.status }}</td>
+            <td>
+                <!-- Add action buttons for banning/unbanning IPs -->
+                <a href="#" class="btn btn-primary btn-sm">Change Status</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
